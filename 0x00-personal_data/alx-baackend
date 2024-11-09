@@ -1,0 +1,4 @@
+export PERSONAL_DATA_DB_USERNAME="myuser"
+export PERSONAL_DATA_DB_PASSWORD="mypassword"
+export PERSONAL_DATA_DB_HOST="localhost"
+export PERSONAL_DATA_DB_NAME="holberton"

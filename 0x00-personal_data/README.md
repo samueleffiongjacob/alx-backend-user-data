@@ -146,8 +146,8 @@ Create a tuple  `PII_FIELDS`  constant at the root of the module containing the 
 
 **Tips:**
 
--   [What Is PII, non-PII, and personal data?](https://intranet.hbtn.io/rltoken/mIWE8AiEUxZSuNglSkReHA "What Is PII, non-PII, and personal data?")
--   [Uncovering Password Habits](https://intranet.hbtn.io/rltoken/ANV_2pIBJOOWSDv6kYLQUw "Uncovering Password Habits")
+-   [What Is PII, non-PII, and personal data?](https://piwik.pro/blog/what-is-pii-personal-data/ "What Is PII, non-PII, and personal data?")
+-   [Uncovering Password Habits](https://www.digitalguardian.com/blog "Uncovering Password Habits")
 
 ```
 bob@dylan:~$ cat main.py
