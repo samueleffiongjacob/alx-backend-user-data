@@ -1,0 +1,10 @@
+Here’s a breakdown of the command:
+
+-d: Run the container in detached mode.
+--name alx-backend: Name the container alx-backend.
+-e MYSQL_ROOT_PASSWORD=root: Set the root password for MySQL to root.
+-e MYSQL_DATABASE=holberton: Create a new database named holberton.
+-e MYSQL_USER=alx: Create a user alx.
+-e MYSQL_PASSWORD=samuel15$: Set the password for user alx to samuel15$.
+-p 13306:3306: Map port 3306 from the container to port 13306 on the host machine.
+mysql:latest: Use the latest version of the MySQL image from Docker Hub.

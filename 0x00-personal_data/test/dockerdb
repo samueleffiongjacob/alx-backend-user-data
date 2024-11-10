@@ -1,0 +1,8 @@
+docker run -d \
+  --name alx-backend \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -e MYSQL_DATABASE=holberton \
+  -e MYSQL_USER=alx \
+  -e MYSQL_PASSWORD=samuel15$ \
+  -p 13306:3306 \
+  mysql:latest

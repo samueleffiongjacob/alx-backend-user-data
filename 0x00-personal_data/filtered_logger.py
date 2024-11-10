@@ -34,10 +34,14 @@ def get_logger() -> logging.Logger:
 
 def get_db() -> connection.MySQLConnection:
     """
-    Connect to mysql server with environmental vars
+    Connect to mysql server with environmental using environment variables.
+    Returns a MySQLConnection object.
     """
+
+    # Fetch the credentials from the environment variables, with defaults if not set
+ 
     username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
-    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "")
+    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "") # leave empty
     db_host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
     db_name = environ.get("PERSONAL_DATA_DB_NAME", "holberton") # if local include: ,"holberton"
     connector = connection.MySQLConnection(

@@ -1,0 +1,12 @@
+export PERSONAL_DATA_DB_USERNAME="root"
+export PERSONAL_DATA_DB_PASSWORD="" # your password replace insid queto
+export PERSONAL_DATA_DB_HOST="127.0.0.1"  # Or the IP address of your MySQL host
+export PERSONAL_DATA_DB_NAME="holberton"
+
+
+# verify
+
+echo $PERSONAL_DATA_DB_USERNAME
+echo $PERSONAL_DATA_DB_PASSWORD
+echo $PERSONAL_DATA_DB_HOST
+echo $PERSONAL_DATA_DB_NAME
