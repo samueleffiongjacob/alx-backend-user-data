@@ -31,7 +31,8 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stream_handler)
     return logger
 
-
+#3 connect to secure database
+"""Always run all my sql command before attempting to connect"""
 def get_db() -> connection.MySQLConnection:
     """
     Connect to mysql server with environmental using environment variables.
@@ -41,7 +42,7 @@ def get_db() -> connection.MySQLConnection:
     # Fetch the credentials from the environment variables, with defaults if not set
  
     username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
-    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "") # leave empty
+    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "FGCIcisco15$") # leave empty
     db_host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
     db_name = environ.get("PERSONAL_DATA_DB_NAME", "holberton") # if local include: ,"holberton"
     connector = connection.MySQLConnection(
@@ -71,7 +72,7 @@ class RedactingFormatter(logging.Formatter):
                 RedactingFormatter, self).format(record),
             self.SEPARATOR)
 
-
+# 4 Read and filter data
 def main() -> None:
     """
     Obtain a database connection using get_db
