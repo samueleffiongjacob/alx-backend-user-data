@@ -4,12 +4,14 @@
 from typing import List
 import logging
 import re  # needed 2
-from mysql.connector import connection 
+from mysql.connector import connection
 from os import environ
 
 PII_FIELDS = ('name', 'email', 'password', 'ssn', 'phone')
 
 # 0. Regex-ing
+
+
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
     """ returns the log message obfuscated """
@@ -20,6 +22,8 @@ def filter_datum(fields: List[str], redaction: str,
     return temp
 
 # 2. Create logger
+
+
 def get_logger() -> logging.Logger:
     """ Returns logger obj  """
     logger = logging.getLogger('user_data')
@@ -31,20 +35,27 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stream_handler)
     return logger
 
-#3 connect to secure database
+
+# 3 connect to secure database
 """Always run all my sql command before attempting to connect"""
+
+
 def get_db() -> connection.MySQLConnection:
     """
     Connect to mysql server with environmental using environment variables.
     Returns a MySQLConnection object.
     """
 
-    # Fetch the credentials from the environment variables, with defaults if not set
- 
+    # Fetch the credentials from the environment variables, with defaults if
+    # not set
+
     username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
-    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "FGCIcisco15$") # leave empty
+    password = environ.get(
+        "PERSONAL_DATA_DB_PASSWORD",
+        "FGCIcisco15$")  # leave empty
     db_host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
-    db_name = environ.get("PERSONAL_DATA_DB_NAME", "holberton") # if local include: ,"holberton"
+    db_name = environ.get("PERSONAL_DATA_DB_NAME",
+                          "holberton")  # if local include: ,"holberton"
     connector = connection.MySQLConnection(
         user=username,
         password=password,
@@ -52,7 +63,9 @@ def get_db() -> connection.MySQLConnection:
         database=db_name)
     return connector
 
-#1. Log formatter
+# 1. Log formatter
+
+
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class """
 
@@ -73,6 +86,8 @@ class RedactingFormatter(logging.Formatter):
             self.SEPARATOR)
 
 # 4 Read and filter data
+
+
 def main() -> None:
     """
     Obtain a database connection using get_db
