@@ -6,7 +6,7 @@
 
 In this project, you will learn what the authentication process means and implement a  **Basic Authentication**  on a simple API.
 
-In the industry, you should  **not**  implement your own Basic authentication system and use a module or framework that doing it for you (like in Python-Flask:  [Flask-HTTPAuth](https://intranet.hbtn.io/rltoken/XvXTZnSvVYaLaWtAWcTkYQ "Flask-HTTPAuth")). Here, for the learning purpose, we will walk through each step of this mechanism to understand it by doing.
+In the industry, you should  **not**  implement your own Basic authentication system and use a module or framework that doing it for you (like in Python-Flask:  [Flask-HTTPAuth](https://flask-httpauth.readthedocs.io/en/latest/)). Here, for the learning purpose, we will walk through each step of this mechanism to understand it by doing.
 
 ![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/5/6ccb363443a8f301bc2bc38d7a08e9650117de7c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210823%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210823T074934Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=02a9e0e74a6cd73fbaf46a457cd16c7ee2275be088e536793c8c025481412e33)
 
@@ -36,7 +36,7 @@ At the end of this project, you are expected to be able to explain to anyone **w
 -   What Basic authentication means
 -   How to send the Authorization header
 
-
+<!-- Requirement python 3.7 and ubuntu 18.04 -->
 ## Tasks
 
 ### 0. Simple-basic-API
@@ -98,8 +98,7 @@ Edit  `api/v1/app.py`:
 For testing this new error handler, add a new endpoint in  `api/v1/views/index.py`:
 
 -   Route:  `GET /api/v1/unauthorized`
--   This endpoint must raise a 401 error by using  `abort`  -  [Custom Error Pages](https://intranet.hbtn.io/rltoken/b_fiIzXww5pqrwQUuCLo7Q "Custom Error Pages")
-
+-   This endpoint must raise a 401 error by using  `abort`  -  [Custom Error Pages](https://flask.palletsprojects.com/en/stable/patterns/errorpages/)
 By calling  `abort(401)`, the error handler for 401 will be executed.
 
 In the first terminal:
@@ -306,7 +305,7 @@ Update the file  `api/v1/app.py`:
         -   import  `Auth`  from  `api.v1.auth.auth`
         -   create an instance of  `Auth`  and assign it to the variable  `auth`
 
-Now the biggest piece is the filtering of each request. For that you will use the Flask method before_request
+Now the biggest piece is the filtering of each request. For that you will use the Flask method [before_request](https://flask.palletsprojects.com/en/stable/api/)
 
 -   Add a method in  `api/v1/app.py`  to handler  `before_request`
     -   if  `auth`  is  `None`, do nothing
